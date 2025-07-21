@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#667eea" />
+    <meta name="description" content="GlobalDeskBPO - Leading Business Process Outsourcing solutions that drive efficiency, reduce costs, and accelerate your growth with our expert team available 24/7." />
+    <meta name="keywords" content="BPO, Business Process Outsourcing, Customer Support, Data Entry, Virtual Assistant, Technical Support, Lead Generation, Live Chat Support, Back Office Support" />
+    <meta name="author" content="GlobalDeskBPO" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://globaldeskbpo.com/" />
+    <meta property="og:title" content="GlobalDeskBPO - Transform Your Business with Expert BPO Services" />
+    <meta property="og:description" content="Leading Business Process Outsourcing solutions that drive efficiency, reduce costs, and accelerate your growth with our expert team available 24/7." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://globaldeskbpo.com/" />
+    <meta property="twitter:title" content="GlobalDeskBPO - Transform Your Business with Expert BPO Services" />
+    <meta property="twitter:description" content="Leading Business Process Outsourcing solutions that drive efficiency, reduce costs, and accelerate your growth with our expert team available 24/7." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GlobalDeskBPO",
+      "description": "Leading Business Process Outsourcing solutions",
+      "url": "https://globaldeskbpo.com",
+      "telephone": "+44 7458 676864",
+      "email": "info@globaldeskbpo.com",
+      "sameAs": [
+        "https://www.facebook.com/globaldeskbpo",
+        "https://www.twitter.com/globaldeskbpo",
+        "https://www.linkedin.com/company/globaldeskbpo"
+      ],
+      "serviceType": [
+        "Customer Support",
+        "Data Entry",
+        "Virtual Assistant",
+        "Technical Support",
+        "Lead Generation",
+        "Live Chat Support",
+        "Back Office Support"
+      ]
+    }
+    </script>
+    
+    <title>GlobalDeskBPO - Transform Your Business with Expert BPO Services</title>
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//wa.me">
+    
+    <style>
+      /* Critical CSS for initial load */
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #0a0a0a;
+        color: #ffffff;
+      }
+      
+      /* Loading spinner */
+      .loading-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(102, 126, 234, 0.3);
+        border-top: 3px solid #667eea;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loading-text {
+        margin-top: 20px;
+        color: #667eea;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="text-align: center; padding: 50px; background: #0a0a0a; color: #ffffff;">
+        <h1>JavaScript Required</h1>
+        <p>You need to enable JavaScript to run this app. GlobalDeskBPO website requires JavaScript for the best user experience.</p>
+        <p>For immediate assistance, please contact us at:</p>
+        <p><strong>Phone:</strong> +44 7458 676864</p>
+        <p><strong>Email:</strong> info@globaldeskbpo.com</p>
+      </div>
+    </noscript>
+    
+    <!-- Loading screen -->
+    <div id="loading-screen" class="loading-container">
+      <div style="text-align: center;">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading GlobalDeskBPO...</div>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Remove loading screen when React app loads
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.transition = 'opacity 0.5s ease';
+            setTimeout(function() {
+              loadingScreen.remove();
+            }, 500);
+          }
+        }, 1000);
+      });
+      
+      // Service Worker registration for PWA capabilities
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+              console.log('SW registered: ', registration);
+            })
+            .catch(function(registrationError) {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
